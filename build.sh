@@ -73,6 +73,27 @@ for root, dirs, files in os.walk('dist'):
 PYEOF
   fi
 
+  # Remove "Buy <Theme>" nav links that point to Lexington's purchase pages
+  if [ -d "dist" ]; then
+    python3 - <<'PYEOF'
+import os, re
+buy_pattern = re.compile(
+    r'<a\s[^>]*?href="https://(?:lexingtonthemes\.com/templates/|buy\.polar\.sh/)[^"]*"[^>]*>[\s\S]*?</a>',
+    re.IGNORECASE
+)
+for root, dirs, files in os.walk('dist'):
+    for f in files:
+        if f.endswith('.html'):
+            fpath = os.path.join(root, f)
+            with open(fpath, encoding='utf-8') as fp:
+                content = fp.read()
+            new_content = buy_pattern.sub('', content)
+            if new_content != content:
+                with open(fpath, 'w', encoding='utf-8') as fp:
+                    fp.write(new_content)
+PYEOF
+  fi
+
   # Copy built output to public/{slug}/
   if [ -d "dist" ]; then
     mkdir -p "$PUBLIC_DIR/$SLUG"
