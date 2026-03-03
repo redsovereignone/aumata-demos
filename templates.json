@@ -1,0 +1,33 @@
+{
+  "templates": [
+    { "slug": "alfred", "repo": "Lexington-Themes/alfred" },
+    { "slug": "aubergine", "repo": "Lexington-Themes/aubergine" },
+    { "slug": "author", "repo": "Lexington-Themes/author" },
+    { "slug": "brightlight", "repo": "Lexington-Themes/brightlight" },
+    { "slug": "buio", "repo": "Lexington-Themes/buio" },
+    { "slug": "carbon", "repo": "Lexington-Themes/carbon" },
+    { "slug": "carriera", "repo": "Lexington-Themes/carriera" },
+    { "slug": "dusk", "repo": "Lexington-Themes/dusk" },
+    { "slug": "enlightr", "repo": "Lexington-Themes/enlightr" },
+    { "slug": "flabbergasted", "repo": "Lexington-Themes/flabbergasted" },
+    { "slug": "flaco", "repo": "Lexington-Themes/flaco" },
+    { "slug": "hemingway", "repo": "Lexington-Themes/hemingway" },
+    { "slug": "hirewise", "repo": "Lexington-Themes/hirewise" },
+    { "slug": "kotei", "repo": "Lexington-Themes/kotei" },
+    { "slug": "navy", "repo": "Lexington-Themes/navy" },
+    { "slug": "outkast", "repo": "Lexington-Themes/outkast" },
+    { "slug": "phanatik", "repo": "Lexington-Themes/phanatik" },
+    { "slug": "primapersona", "repo": "Lexington-Themes/primapersona" },
+    { "slug": "profoliox", "repo": "Lexington-Themes/profoliox" },
+    { "slug": "quartiere", "repo": "Lexington-Themes/quartiere" },
+    { "slug": "riflesso", "repo": "Lexington-Themes/riflesso" },
+    { "slug": "semplice", "repo": "Lexington-Themes/semplice" },
+    { "slug": "simplexity", "repo": "Lexington-Themes/simplexity" },
+    { "slug": "snowpeak", "repo": "Lexington-Themes/snowpeak" },
+    { "slug": "spaziobianco", "repo": "Lexington-Themes/spaziobianco" },
+    { "slug": "streamer", "repo": "Lexington-Themes/streamer" },
+    { "slug": "studiomax", "repo": "Lexington-Themes/studiomax" },
+    { "slug": "vanta", "repo": "Lexington-Themes/vanta" },
+    { "slug": "williamsburg", "repo": "Lexington-Themes/williamsburg" }
+  ]
+}
