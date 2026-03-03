@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><title>Your Page Title</title>
+<meta name="description" content="A detailed description of your page content.">
+<link rel="canonical" href="https://yoursite.com/current-page">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="A detailed description of your page content.">
+<meta property="og:url" content="https://yoursite.com/current-page">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yoursite.com/og-image.jpg">
+<meta property="og:image:alt" content="Open Graph Image Alt">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Your Site Name">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yoursite">
+<meta name="twitter:creator" content="@yourhandle"> <!-- Open Graph / Facebook --> <meta property="og:type" content="website"> <meta property="og:url" content="https://www.yourwebsite.com/"> <meta property="og:title" content="Your Website Title"> <meta property="og:description" content="A brief description of your website content."> <meta property="og:image" content="https://www.yourwebsite.com/path/to/image.jpg"> <!-- Twitter --> <meta property="twitter:card" content="summary_large_image"> <meta property="twitter:url" content="https://www.yourwebsite.com/"> <meta property="twitter:title" content="Your Website Title"> <meta property="twitter:description" content="A brief description of your website content."> <meta property="twitter:image" content="https://www.yourwebsite.com/path/to/image.jpg"> <!-- Canonical URL --> <link rel="canonical" href="https://www.yourwebsite.com/"> <!-- Additional SEO --> <meta name="robots" content="index, follow"> <meta name="googlebot" content="index, follow"> <!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your Website Title</title><meta name="description" content="A brief description of your website content."><meta name="keywords" content="keyword1, keyword2, keyword3"><meta name="author" content="Your Name or Company Name"><!-- Theme Color for Mobile Browsers --><meta name="theme-color" content="#ffffff"><!-- For IE --><meta http-equiv="X-UA-Compatible" content="IE=edge"> <!------
+// Geist Font from Google Fonts: https://fonts.google.com/specimen/Geist 
+// Geist Mono Font from Google Fonts: https://fonts.google.com/specimen/Geist+Mono
+--- --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" href="/kotei/favicon.ico" sizes="any"><link rel="icon" href="/kotei/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/kotei/apple-touch-icon.png"><link rel="manifest" href="/kotei/manifest.webmanifest"><!-- Favicon for IE --><link rel="shortcut icon" href="/kotei/favicon.ico" type="image/x-icon"><!-- Favicons for different sizes --><link rel="icon" type="image/png" sizes="16x16" href="/kotei/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/kotei/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/kotei/favicon-48x48.png"><!-- Apple Touch Icon (for backwards compatibility) --><link rel="apple-touch-icon" sizes="180x180" href="/kotei/apple-touch-icon.png"> <!-- Scripts --> <!-- 
+    // AOS animation library
+    // https://github.com/michalsnik/aos
+  --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- FuseJS: https://fusejs.io/ --><script type="module" src="/kotei/_astro/FuseJs.astro_astro_type_script_index_0_lang.CWUOEIUq.js"></script> <script>
+  (function () {
+    // Get the saved theme from localStorage or system preference
+    const theme =
+      localStorage.getItem("theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+
+    // Apply the theme immediately
+    document.documentElement.classList.toggle("dark", theme === "dark");
+
+    // Set the toggle state correctly based on the theme
+    const toggle = document.getElementById("theme-toggle");
+    toggle.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+  })();
+</script><link rel="stylesheet" href="/kotei/_astro/_slug_.cP1FkD1f.css"></head> <body class="dark:bg-base-900 bg-base-100">  <main class="grow"> <div class="flex h-screen"> <div class="flex items-center justify-center w-full p-8 bg-sand-100 lg:w-2/3"> <div class="w-full max-w-md py-12"> <h1 class="text-2xl  md:text-3xl lg:text-4xl dark:text-white xl:text-4xl tracking-tight font-medium text-black text-balance" data-aos="fade-up" data-aos-duration="1500">  
+Sign up
+  </h1> <form class="mt-12"> <div class="flex flex-col gap-2"> <div> <label for="email" class="sr-only">Email</label> <input type="email" name="email" id="email" placeholder="Enter your email" autocomplete="email" class="w-full flex-auto appearance-none rounded-md dark:text-white text-base-900 outline-inset border-transparent px-3 py-2 shadow-base-800/5 dark:placeholder:text-base-400 dark:place-holder-text-base-700 duration-300 h-9 focus:border-base-500 focus:outline-none focus:outline-4 focus:outline-base-500/10 sm:text-sm bg-base-50 dark:bg-base-800"> </div> <div> <label for="password" class="sr-only">Password</label> <input type="password" name="password" id="password" placeholder="Choose a password" autocomplete="new-password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Use at least 8 characters, including 1 uppercase, 1 lowercase, 1 digit, and 1 special character." class="w-full flex-auto appearance-none rounded-md dark:text-white text-base-900 outline-inset border-transparent px-3 py-2 shadow-base-800/5 dark:placeholder:text-base-400 dark:place-holder-text-base-700 duration-300 h-9 focus:border-base-500 focus:outline-none focus:outline-4 focus:outline-base-500/10 sm:text-sm bg-base-50 dark:bg-base-800"> <p class="mt-2 text-xs text-base-700">
+Use at least 8 characters, 1 uppercase, 1 lowercase, 1 digit,
+                and 1 special character for your password.
+</p> </div> <div class="mt-4"> <label for="confirm-password" class="sr-only">Confirm Password</label> <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" autocomplete="new-password" class="w-full flex-auto appearance-none rounded-md dark:text-white text-base-900 outline-inset border-transparent px-3 py-2 shadow-base-800/5 dark:placeholder:text-base-400 dark:place-holder-text-base-700 duration-300 h-9 focus:border-base-500 focus:outline-none focus:outline-4 focus:outline-base-500/10 sm:text-sm bg-base-50 dark:bg-base-800"> </div> </div> <div class="mt-2"> <button class="flex transition text-center justify-center font-medium items-center duration-500 ease-in-out transition-colors focus:outline-2 outline-offset-4 text-white dark:text-base-900  bg-base-800 dark:bg-base-50 hover:bg-base-900 dark:hover:bg-base-300 focus:outline-base-900 dark:focus:outline-white h-9 px-4 py-3 text-sm rounded-lg w-full" type="submit">
+Sign up
+</button> <p class="text-xs  mt-4 text-base-700 dark:text-base-400">  
+Already have an account?
+<a class="text-accent-400 hover:text-base-500" href="/kotei/signin">Sign in instead</a>   </p> </div> </form> <a href="/kotei/" class="text-black hover:underline dark:text-white flex mt-12">Go back gome</a> </div> </div> <img src="/kotei/_astro/avatar.COvU9rcS_284Far.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1000" height="2000" class="object-cover object-right w-full h-full bg-base-50 hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"> </div> </main>  <!-- 
+    // AOS animation library
+    // https://github.com/michalsnik/aos
+  --><script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script type="text/javascript">
+    AOS.init();
+  </script> </body></html>

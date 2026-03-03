@@ -1,4 +1,4 @@
 /*
-  Content-Security-Policy: frame-ancestors https://aumata.com https://*.aumata.com
+  Content-Security-Policy: frame-ancestors https://aumata.ai https://*.aumata.ai
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff

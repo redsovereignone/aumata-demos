@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en"> <head><title>Your Page Title</title>
+<meta name="description" content="A detailed description of your page content.">
+<link rel="canonical" href="https://yoursite.com/current-page">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="A detailed description of your page content.">
+<meta property="og:url" content="https://yoursite.com/current-page">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yoursite.com/og-image.jpg">
+<meta property="og:image:alt" content="Open Graph Image Alt">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Your Site Name">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yoursite">
+<meta name="twitter:creator" content="@yourhandle"> <!-- Open Graph / Facebook --> <meta property="og:type" content="website"> <meta property="og:url" content="https://www.yourwebsite.com/"> <meta property="og:title" content="Your Website Title"> <meta property="og:description" content="A brief description of your website content."> <meta property="og:image" content="https://www.yourwebsite.com/path/to/image.jpg"> <!-- Twitter --> <meta property="twitter:card" content="summary_large_image"> <meta property="twitter:url" content="https://www.yourwebsite.com/"> <meta property="twitter:title" content="Your Website Title"> <meta property="twitter:description" content="A brief description of your website content."> <meta property="twitter:image" content="https://www.yourwebsite.com/path/to/image.jpg"> <!-- Canonical URL --> <link rel="canonical" href="https://www.yourwebsite.com/"> <!-- Additional SEO --> <meta name="robots" content="index, follow"> <meta name="googlebot" content="index, follow"> <!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your Website Title</title><meta name="description" content="A brief description of your website content."><meta name="keywords" content="keyword1, keyword2, keyword3"><meta name="author" content="Your Name or Company Name"><!-- Theme Color for Mobile Browsers --><meta name="theme-color" content="#ffffff"><!-- For IE --><meta http-equiv="X-UA-Compatible" content="IE=edge"> <!------ Inter from: https://rsms.me/inter/ --><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><!-- STIX Two Text from: https://fonts.google.com/ --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" href="/phanatik/favicon.ico" sizes="any"><link rel="icon" href="/phanatik/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/phanatik/apple-touch-icon.png"><link rel="manifest" href="/phanatik/manifest.webmanifest"><!-- Favicon for IE --><link rel="shortcut icon" href="/phanatik/favicon.ico" type="image/x-icon"><!-- Favicons for different sizes --><link rel="icon" type="image/png" sizes="16x16" href="/phanatik/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/phanatik/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/phanatik/favicon-48x48.png"><!-- Apple Touch Icon (for backwards compatibility) --><link rel="apple-touch-icon" sizes="180x180" href="/phanatik/apple-touch-icon.png"> <!---- Scripts --> <!--- Keen Slider --><link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet"> <script type="module">
+    function updateClock() {
+      // Create a new Date object based on the user's local time zone
+      const now = new Date();
+      let hours = now.getHours(); // 0-23
+      const minutes = now.getMinutes(); // 0-59
+      const period = hours >= 12 ? "PM" : "AM"; // Determine if it's AM or PM
+      // Convert hours to 12-hour format
+      hours = hours % 12;
+      hours = hours ? hours : 12; // Handle the case for 12 AM and 12 PM
+      // Format time as HH:MM AM/PM
+      const timeString =
+        [
+          hours.toString().padStart(2, "0"),
+          minutes.toString().padStart(2, "0"),
+        ].join(":") +
+        " " +
+        period;
+      // Update the clock element with the time
+      document.getElementById("clock").textContent = timeString;
+    }
+    // Update the year every second
+    function updateYear() {
+      const currentYear = new Date().getFullYear(); // Get the current year
+      document.getElementById("year").textContent = currentYear; // Update the year in the span
+    }
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+    // Initialize the clock and year
+    updateClock();
+    updateYear();
+</script> <!-- Show ticker only on index and /blog/index --><script type="module">
+  const path = window.location.pathname;
+  if (path !== "/" && path !== "/blog/index") {
+    document
+      .getElementById("tickerElement")
+      ?.style.setProperty("display", "none");
+  }
+</script> <script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuButton = document.getElementById("menubutton");
+      const menu = document.getElementById("menu");
+      const menuIcon = document.getElementById("menuIcon");
+      const tabsList = document.getElementById("tabsList");
+      const tabPanels = document.getElementById("tabPanels");
+      let expanded = false;
+      // Toggle menu
+      menuButton.addEventListener("click", () => {
+        expanded = !expanded;
+        menuButton.setAttribute("aria-expanded", expanded);
+        menu.classList.toggle("expanded");
+        menuIcon.style.opacity = expanded ? "0" : "1";
+      });
+      // Tabs functionality
+      tabsList.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          const selectedCategory = e.target.getAttribute("data-category");
+          // Update tab styles
+          tabsList.querySelectorAll("button").forEach((tab) => {
+            tab.classList.toggle("border-accent-500", tab === e.target);
+            tab.classList.toggle("border-transparent", tab !== e.target);
+          });
+          // Show/hide tab panels
+          tabPanels.querySelectorAll("div[data-category]").forEach((panel) => {
+            panel.classList.toggle(
+              "hidden",
+              panel.getAttribute("data-category") !== selectedCategory
+            );
+          });
+        }
+      });
+    });
+  </script><link rel="stylesheet" href="/phanatik/_astro/_slug_.W8EbJcGK.css"></head> <body class="bg-base-50 flex flex-col min-h-svh">  <main class="grow"> <div class="flex h-screen"> <div class="flex items-center justify-center w-full p-8 bg-sand-50 lg:w-2/3"> <div class="w-full max-w-md py-24 lg:py-32"> <div> <h1 class="text-base text-base-900 font-display font-medium">  
+Sign in to your account
+  </h1> <p class="text-sm  tracking-tight text-base-600 text-balance">  
+Welcome back! Please enter your email and password to sign in.
+  </p> </div> <form action="#" method="POST" class="relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"> <div class="flex flex-col gap-y-2"> <div> <label for="email" class="text-sm text-base-600 font-medium">Email</label> <div class="mt-1"> <input type="email" name="email" id="email" autocomplete="email" required aria-required="true" aria-describedby="email-error" class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"> <span id="email-error" class="text-red-600 text-sm hidden">
+Please enter a valid email address.
+</span> </div> </div> <div> <label for="password" class="text-sm text-base-600 font-medium">
+Password
+<a href="#" class="text-accent-600 hover:text-accent-700">Forgot password?</a> </label> <div class="mt-1"> <input type="password" name="password" id="password" autocomplete="current-password" required aria-required="true" aria-describedby="password-error" class="block w-full h-10 px-4 py-2 text-sm text-accent-700 border border-transparent rounded-lg appearance-none duration-300 bg-base-100 focus:bg-transparent focus:outline-none focus:ring-accent-500 focus:ring-offset-2 focus:ring-2 focus:ring-offset-base-200"> <span id="password-error" class="text-red-600 text-sm hidden">
+Please enter a valid password.
+</span> </div> </div> <div class="flex items-center gap-3"> <input id="remember-me" name="remember-me" type="checkbox" class="size-4 rounded border-base-300 text-accent-600 focus:ring-accent-600"> <label for="remember-me" class="text-sm text-base-600 font-medium">
+Remember me
+</label> </div> </div> <div class="mt-2"> <button class="flex justify-center text-center font-medium items-center duration-500 ease-in-out transition-colors focus:outline-2 text-white bg-accent-600 hover:bg-accent-500 focus:outline-accent-200 h-10 px-5 py-4 text-sm rounded-lg w-full" type="submit">
+Sign in
+</button> </div> </form> <div class="mt-8"> <p class="text-base text-base-900 font-display font-medium">  
+Or sign in with
+  </p> <div class="flex flex-col gap-y-2 relative before:absolute after:absolute before:bg-base-950 after:bg-base-950/10 before:top-0 before:left-0 before:h-px before:w-6 after:top-0 after:right-0 after:left-8 after:h-px pt-4 mt-2"> <a href="#_" class="flex justify-center text-center font-medium items-center duration-500 ease-in-out transition-colors focus:outline-2 text-base-900 bg-base-100 hover:bg-base-200 focus:outline-base-100 h-10 px-5 py-4 text-sm rounded-lg w-full">
+Sign in with Apple
+</a> <a href="#_" class="flex justify-center text-center font-medium items-center duration-500 ease-in-out transition-colors focus:outline-2 text-base-900 bg-base-100 hover:bg-base-200 focus:outline-base-100 h-10 px-5 py-4 text-sm rounded-lg w-full">
+Sign in with Meta
+</a> <a href="#_" class="flex justify-center text-center font-medium items-center duration-500 ease-in-out transition-colors focus:outline-2 text-base-900 bg-base-100 hover:bg-base-200 focus:outline-base-100 h-10 px-5 py-4 text-sm rounded-lg w-full">
+Sign in with Chrome
+</a> </div> <p class="text-sm  text-base-600 mt-4">  
+Don't have an account?
+<a class="leading-normal text-accent-500 font-medium hover:text-base-600" href="/phanatik/sign-up">
+Sign up
+</a>   </p> </div> </div> </div> <div class="relative hidden overflow-hidden lg:block lg:w-1/3 lg:order-first"> <img src="/phanatik/_astro/about.DT9ePbi3_ZtGdDz.webp" alt="Background" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="auto" width="1200" height="1200" class="object-cover object-center w-full h-full bg-base-50"> <div aria-hidden="true" class="absolute inset-0 pointer-events-none bg-accent-700/50"></div> </div> </div> </main>  <!-- FuseJS: https://fusejs.io/ --><script type="module" src="/phanatik/_astro/FuseJS.astro_astro_type_script_index_0_lang.CWUOEIUq.js"></script> <!-- Scripts --> <script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("#tab-section").forEach((tabSection) => {
+      // Select all the tab links inside the current #tab-section
+      const tabs = tabSection.querySelectorAll("button");
+      // Select all the tab content sections within the current #tab-section
+      const tabContents = tabSection.querySelectorAll(".tab-content");
+
+      if (tabs.length > 0 && tabContents.length > 0) {
+        // Set the first tab as active and its content visible by default
+        tabs[0].classList.add("text-black", "border-b-2", "border-base-500");
+        tabContents[0].classList.remove("hidden"); // Show the first tab content by default
+      }
+
+      // Add a click event listener to each tab link
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Remove the active class from all tabs in this section
+          tabs.forEach((t) =>
+            t.classList.remove("border-b-2", "border-base-500", "text-black")
+          );
+          // Add the active class to the clicked tab
+          tab.classList.add("text-black", "border-b-2", "border-base-500");
+
+          // Hide all tab contents in this section
+          tabContents.forEach((content) => content.classList.add("hidden"));
+
+          // Show the corresponding content in this section
+          const targetTab = tab.getAttribute("data-tab");
+          tabSection.querySelector(`#${targetTab}`).classList.remove("hidden");
+        });
+      });
+    });
+  });
+</script> <script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const audioElement = document.getElementById("audioElement");
+    const seekBar = document.getElementById("seekBar");
+    const muteBtn = document.getElementById("muteBtn");
+    const backwardBtn = document.getElementById("backwardBtn");
+    const forwardBtn = document.getElementById("forwardBtn");
+    const currentTimeDisplay = document.getElementById("currentTime");
+    const durationDisplay = document.getElementById("duration");
+
+    // Icons inside the buttons
+    const playIcon = document.getElementById("playIcon");
+    const pauseIcon = document.getElementById("pauseIcon");
+    const speakerIcon = document.getElementById("speakerIcon");
+    const muteIcon = document.getElementById("muteIcon");
+
+    // Play/Pause toggle
+    playPauseBtn.addEventListener("click", () => {
+      if (audioElement.paused) {
+        audioElement.play();
+        playIcon.classList.add("hidden");
+        pauseIcon.classList.remove("hidden");
+      } else {
+        audioElement.pause();
+        pauseIcon.classList.add("hidden");
+        playIcon.classList.remove("hidden");
+      }
+    });
+
+    // Mute/Unmute toggle
+    muteBtn.addEventListener("click", () => {
+      audioElement.muted = !audioElement.muted;
+      speakerIcon.classList.toggle("hidden", audioElement.muted);
+      muteIcon.classList.toggle("hidden", !audioElement.muted);
+    });
+
+    // Backward 10s
+    backwardBtn.addEventListener("click", () => {
+      audioElement.currentTime = Math.max(0, audioElement.currentTime - 10);
+    });
+
+    // Forward 10s
+    forwardBtn.addEventListener("click", () => {
+      audioElement.currentTime = Math.min(
+        audioElement.duration,
+        audioElement.currentTime + 10
+      );
+    });
+
+    // Update time and seek bar
+    audioElement.addEventListener("timeupdate", () => {
+      const progress = (audioElement.currentTime / audioElement.duration) * 100;
+      seekBar.value = progress;
+
+      const minutes = Math.floor(audioElement.currentTime / 60);
+      const seconds = Math.floor(audioElement.currentTime % 60);
+      currentTimeDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    });
+
+    // Update duration
+    audioElement.addEventListener("loadedmetadata", () => {
+      const minutes = Math.floor(audioElement.duration / 60);
+      const seconds = Math.floor(audioElement.duration % 60);
+      durationDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    });
+
+    // Seek bar interaction
+    seekBar.addEventListener("input", () => {
+      const seekTo = (seekBar.value / 100) * audioElement.duration;
+      audioElement.currentTime = seekTo;
+    });
+  });
+</script> </body></html>

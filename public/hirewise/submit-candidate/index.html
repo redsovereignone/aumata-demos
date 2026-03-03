@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en" class="selection:bg-blue selection:text-white scroll-smooth"> <head><title>Your Page Title</title>
+<meta name="description" content="A detailed description of your page content.">
+<link rel="canonical" href="https://yoursite.com/current-page">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="A detailed description of your page content.">
+<meta property="og:url" content="https://yoursite.com/current-page">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yoursite.com/og-image.jpg">
+<meta property="og:image:alt" content="Open Graph Image Alt">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Your Site Name">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yoursite">
+<meta name="twitter:creator" content="@yourhandle"> <!-- Open Graph / Facebook --> <meta property="og:type" content="website"> <meta property="og:url" content="https://www.yourwebsite.com/"> <meta property="og:title" content="Your Website Title"> <meta property="og:description" content="A brief description of your website content."> <meta property="og:image" content="https://www.yourwebsite.com/path/to/image.jpg"> <!-- Twitter --> <meta property="twitter:card" content="summary_large_image"> <meta property="twitter:url" content="https://www.yourwebsite.com/"> <meta property="twitter:title" content="Your Website Title"> <meta property="twitter:description" content="A brief description of your website content."> <meta property="twitter:image" content="https://www.yourwebsite.com/path/to/image.jpg"> <!-- Canonical URL --> <link rel="canonical" href="https://www.yourwebsite.com/"> <!-- Additional SEO --> <meta name="robots" content="index, follow"> <meta name="googlebot" content="index, follow"> <!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your Website Title</title><meta name="description" content="A brief description of your website content."><meta name="keywords" content="keyword1, keyword2, keyword3"><meta name="author" content="Your Name or Company Name"><!-- Theme Color for Mobile Browsers --><meta name="theme-color" content="#ffffff"><!-- For IE --><meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- 
+// Instrument Serif, Geist & Geist Mono fron font:https://fonts.google.com
+--><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" href="/hirewise/favicon.ico" sizes="any"><link rel="icon" href="/hirewise/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/hirewise/apple-touch-icon.png"><link rel="manifest" href="/hirewise/manifest.webmanifest"><!-- Favicon for IE --><link rel="shortcut icon" href="/hirewise/favicon.ico" type="image/x-icon"><!-- Favicons for different sizes --><link rel="icon" type="image/png" sizes="16x16" href="/hirewise/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/hirewise/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/hirewise/favicon-48x48.png"><!-- Apple Touch Icon (for backwards compatibility) --><link rel="apple-touch-icon" sizes="180x180" href="/hirewise/apple-touch-icon.png"> <!-- Scripts --> <script type="module" src="/hirewise/_astro/Fuse.astro_astro_type_script_index_0_lang.B5Y1pTMk.js"></script> <script type="module">
+   document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    const chatBubble = document.getElementById("chat-bubble");
+    const chatToggle = document.getElementById("chat-toggle");
+
+    if (!chatBubble || !chatToggle) {
+      console.error("Chat elements not found!");
+      return;
+    }
+
+    chatToggle.addEventListener("click", function () {
+      console.log("Chat toggle clicked!"); // Debugging line
+      chatBubble.classList.toggle("opacity-0");
+      chatBubble.classList.toggle("pointer-events-none");
+    });
+
+    // Prevent chat bubble from closing when clicking inside it
+    chatBubble.addEventListener("click", function (event) {
+      event.stopPropagation(); // Stops the click from reaching the document listener
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!chatBubble.contains(event.target) && !chatToggle.contains(event.target)) {
+        chatBubble.classList.add("opacity-0");
+        chatBubble.classList.add("pointer-events-none");
+      }
+    });
+  }, 500); // Delays execution slightly to ensure elements exist
+});
+
+
+  </script> <script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuButton = document.getElementById("menubutton");
+      const menu = document.getElementById("menu");
+      const menuIcon = document.getElementById("menuIcon");
+      const tabsList = document.getElementById("tabsList");
+      const tabPanels = document.getElementById("tabPanels");
+      let expanded = false;
+      // Toggle menu
+      menuButton.addEventListener("click", () => {
+        expanded = !expanded;
+        menuButton.setAttribute("aria-expanded", expanded);
+        menu.classList.toggle("expanded");
+        menuIcon.style.opacity = expanded ? "0" : "1";
+      });
+      // Tabs functionality
+      tabsList.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          const selectedCategory = e.target.getAttribute("data-category");
+          // Update tab styles
+          tabsList.querySelectorAll("button").forEach((tab) => {
+            tab.classList.toggle("border-accent-500", tab === e.target);
+            tab.classList.toggle("border-transparent", tab !== e.target);
+          });
+          // Show/hide tab panels
+          tabPanels.querySelectorAll("div[data-category]").forEach((panel) => {
+            panel.classList.toggle(
+              "hidden",
+              panel.getAttribute("data-category") !== selectedCategory
+            );
+          });
+        }
+      });
+    });
+  </script> <script>
+    (function () {
+      // Get the saved theme from localStorage or system preference
+      const theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+  
+      // Apply the theme immediately
+      document.documentElement.classList.toggle("dark", theme === "dark");
+  
+      // Set the toggle state correctly based on the theme
+      const toggle = document.getElementById("theme-toggle");
+      toggle.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+    })();
+  </script><link rel="stylesheet" href="/hirewise/_astro/_slug_.BSskL3vJ.css"></head> <body class="bg-white dark:bg-base-800 flex flex-col min-h-dvh">  <main class="grow">  <section> <div class="max-w-screen  2xl:max-w-[100rem] mx-auto px-8 lg:px-24   py-24 lg:py-12 lg:h-[calc(100vh-2rem)] flex flex-col items-center justify-center">  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 items-center relative"> <div class="max-w-md mx-auto w-full"> <div> <p class="text-xs  flex items-center font-medium uppercase gap-2 text-base-500 dark:text-base-400">   <span class="flex items-center -space-x-2"> <span class="p-2 dark:outline-base-800 bg-yellow-light rounded-full"></span> <span class="p-2 dark:outline-base-800 bg-blue-light rounded-full"></span> <span class="p-2 bg-orange-light rounded-full"></span> <span class="p-2 dark:outline-base-800 bg-green-light rounded-full"></span> </span>
+candidates
+  </p> <h1 class="text-3xl  sm:text-3xl md:text-4xl lg:text-5xl text-balance tracking-tight text-base-900 dark:text-white font-medium font-semibold mt-8">  Submit your application  </h1> </div> <form action="#" method="POST" class="max-w-md mx-auto bg-base-50 dark:bg-base-700 p-1.5 rounded-xl w-full mt-12 flex flex-col gap-1"> <div class="flex flex-col gap-1"> <label for="name" class="block text-sm font-medium text-base-900 dark:text-white sr-only">Full Name</label> <input type="text" id="name" name="name" required placeholder="Enter your full name" class="block w-full h-10 px-4 py-2 text-sm text-base-900 dark:text-white border border-transparent rounded-lg appearance-none duration-300 bg-white dark:bg-base-800 placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-base-200 dark:focus:ring-offset-base-800 shadow dark:outline-white/10 dark:shadow-base-900 outline-base-200 outline"> </div> <div class="flex flex-col gap-1"> <label for="email" class="block text-sm font-medium text-base-900 dark:text-white sr-only">Email Address</label> <input type="email" id="email" name="email" required placeholder="Enter your email address" class="block w-full h-10 px-4 py-2 text-sm text-base-900 dark:text-white border border-transparent rounded-lg appearance-none duration-300 bg-white dark:bg-base-800 placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-base-200 dark:focus:ring-offset-base-800 shadow dark:outline-white/10 dark:shadow-base-900 outline-base-200 outline"> </div> <div class="flex flex-col gap-1"> <label for="location" class="block text-sm font-medium text-base-900 dark:text-white sr-only">Location</label> <input type="text" id="location" name="location" required placeholder="Enter the job location" class="block w-full h-10 px-4 py-2 text-sm text-base-900 dark:text-white border border-transparent rounded-lg appearance-none duration-300 bg-white dark:bg-base-800 placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-base-200 dark:focus:ring-offset-base-800 shadow dark:outline-white/10 dark:shadow-base-900 outline-base-200 outline"> </div> <div class="flex flex-col gap-1"> <label for="phone" class="block text-sm font-medium text-base-900 dark:text-white sr-only">Phone Number</label> <input type="text" id="phone" name="phone" required placeholder="Enter your phone number" class="block w-full h-10 px-4 py-2 text-sm text-base-900 dark:text-white border border-transparent rounded-lg appearance-none duration-300 bg-white dark:bg-base-800 placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-base-200 dark:focus:ring-offset-base-800 shadow dark:outline-white/10 dark:shadow-base-900 outline-base-200 outline"> </div> <div class="flex flex-col gap-1"> <label for="resume" class="block text-sm font-medium text-base-900 dark:text-white sr-only">Upload Resume</label> <input type="file" id="resume" name="resume" required class="block w-full h-10 px-4 py-2 text-sm text-base-900 dark:text-white border border-transparent rounded-lg appearance-none duration-300 bg-white dark:bg-base-800 placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-base-200 dark:focus:ring-offset-base-800 shadow dark:outline-white/10 dark:shadow-base-900 outline-base-200 outline"> </div> <div class="flex flex-col gap-1"> <label for="coverLetter" class="block text-sm font-medium text-base-900 dark:text-white sr-only">Cover Letter</label> <textarea id="coverLetter" name="coverLetter" rows="6" required placeholder="Write a brief cover letter" class="block w-full px-4 py-2 text-sm text-base-900 dark:text-white border border-transparent rounded-lg appearance-none duration-300 bg-white dark:bg-base-800 placeholder-base-400 focus:bg-transparent focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-base-200 dark:focus:ring-offset-base-800 shadow dark:outline-white/10 dark:shadow-base-900 outline-base-200 outline"></textarea> </div> <button class="flex relative text-center font-medium items-center shadow-bottom justify-center overflow-hidden border border-transparent duration-300 ease-in-out transition-all outline-offset-2 hover:opacity-90 hover:shadow-none focus-visible:outline-none focus:outline-2 focus:outline-blue-dark inset-shadow-xs inset-shadow-white/30 ring active:inset-shadow-transparent dark:focus:outline-blue-light text-white bg-base-800 hover:bg-base-900 ring-base-800 dark:text-black dark:bg-base-100 dark:hover:bg-base-100 dark:ring-base-200 h-10 px-4 py-3 text-base rounded-lg w-full" type="submit">
+Submit your application
+</button> </form> </div> <div class="hidden md:grid grid-cols-2 lg:grid-cols-3 h-full order-first md:order-none"> <div class="lg:col-span-2 lg:row-span-2 lg:h-full"> <img src="/hirewise/_astro/4.BK38smlH_2rTfzX.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1200" height="904" class="w-full object-cover object-bottom aspect-square rounded-3xl"> </div> <article class="bg-blue p-4 flex flex-col items-center justify-center text-center rounded-3xl lg:row-span-2"> <blockquote class="text-sm  text-balance font-medium text-white">  
+“We found our dream job in HireWise”
+  </blockquote> <footer class="mt-1 text-white text-sm">
+— David & Sandra Mora
+</footer> </article> <img src="/hirewise/_astro/1.CT9rtVLf_1p7MAF.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1200" height="1200" class="w-full object-cover object-bottom aspect-square rounded-3xl"> <article class="bg-yellow-light p-4 flex flex-col items-center justify-center text-center rounded-3xl lg:col-span-2"> <blockquote class="text-sm  text-balance font-medium text-base-950">  
+“HireWise helped me find a job in less than a week”
+  </blockquote> <footer class="mt-1 text-base-950 text-sm">— Saioa Sanchez</footer> </article> </div> </div>  </div> </section>  </main>  <button class="flex relative text-center font-medium items-center shadow-bottom justify-center overflow-hidden border border-transparent duration-300 ease-in-out transition-all outline-offset-2 hover:opacity-90 hover:shadow-none focus-visible:outline-none focus:outline-2 focus:outline-blue-dark inset-shadow-xs inset-shadow-white/30 ring active:inset-shadow-transparent dark:focus:outline-blue-light text-black bg-base-100 hover:bg-base-100 ring-base-200 dark:text-white dark:bg-base-700 dark:hover:bg-base-600 dark:ring-base-700 size-8 text-xs rounded !fixed bottom-4 right-4 z-50" role="switch" aria-checked="false" aria-label="Toggle dark mode" data-theme-toggle="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-phone size-4" slot="icon"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M12 3v18"></path><path d="M12 14l7 -7"></path><path d="M12 19l8.5 -8.5"></path><path d="M12 9l4.5 -4.5"></path></svg></button> <script type="module">function a(e){document.documentElement.classList.toggle("dark",e),localStorage.setItem("theme",e?"dark":"light"),document.querySelectorAll("[data-theme-toggle]").forEach(t=>{t.setAttribute("aria-checked",e?"true":"false")})}function c(){const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;a(e?e==="dark":t)}c();document.querySelectorAll("[data-theme-toggle]").forEach(e=>{e.addEventListener("click",()=>{const t=document.documentElement.classList.contains("dark");a(!t)})});</script> </body></html>

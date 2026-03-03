@@ -48,6 +48,31 @@ while IFS=' ' read -r SLUG REPO; do
     continue
   }
 
+  # Rewrite absolute internal hrefs/srcs to be relative to /$SLUG/
+  # Fixes nav links that Astro's --base flag doesn't rewrite automatically
+  if [ -d "dist" ]; then
+    python3 - "$SLUG" <<'PYEOF'
+import sys, os, re
+slug = sys.argv[1]
+prefix = '/' + slug
+pattern = re.compile(
+    r'((?:href|src|action)=")(/(?!/)(?!' + re.escape(slug) + r'/)([^"]*))(")'
+)
+def rewrite(m):
+    return m.group(1) + prefix + m.group(2) + m.group(4)
+for root, dirs, files in os.walk('dist'):
+    for f in files:
+        if f.endswith('.html'):
+            fpath = os.path.join(root, f)
+            with open(fpath, encoding='utf-8') as fp:
+                content = fp.read()
+            new_content = pattern.sub(rewrite, content)
+            if new_content != content:
+                with open(fpath, 'w', encoding='utf-8') as fp:
+                    fp.write(new_content)
+PYEOF
+  fi
+
   # Copy built output to public/{slug}/
   if [ -d "dist" ]; then
     mkdir -p "$PUBLIC_DIR/$SLUG"

@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><title>Your Page Title</title>
+<meta name="description" content="A detailed description of your page content.">
+<link rel="canonical" href="https://yourwebsite.com/current-page">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="A detailed description of your page content.">
+<meta property="og:url" content="https://yourwebsite.com/current-page">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+<meta property="og:image:alt" content="Open Graph Image Alt">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Your Site Name">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yourwebsite">
+<meta name="twitter:creator" content="@yourhandle"> <!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"> <!-- Inter Font: https://rsms.me/inter/ --><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><!-- Newsreader Font from: https://fonts.google.com --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" href="/semplice/favicon.ico" sizes="any"><link rel="icon" href="/semplice/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/semplice/apple-touch-icon.png"><link rel="manifest" href="/semplice/manifest.webmanifest"><!-- Favicon for IE --><link rel="shortcut icon" href="/semplice/favicon.ico" type="image/x-icon"><!-- Favicons for different sizes --><link rel="icon" type="image/png" sizes="16x16" href="/semplice/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/semplice/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/semplice/favicon-48x48.png"><!-- Apple Touch Icon (for backwards compatibility) --><link rel="apple-touch-icon" sizes="180x180" href="/semplice/apple-touch-icon.png"> <!-- Scripts --> <!-- FuseJS: https://fusejs.io/ --><script type="module" src="/semplice/_astro/FuseJS.astro_astro_type_script_index_0_lang.CWUOEIUq.js"></script> <!--- Keen Slider --><link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet"><link rel="stylesheet" href="/semplice/_astro/_slug_.BJ-Ohowq.css"></head> <body class="flex flex-col bg-white min-h-svh">   <main class="grow"> <section class="bg-gallery-2 text-white"> <div class="max-w-screen mx-auto px-8  w-full py-8 text-center">  <a class="text-xs  inline-flex items-center gap-1 hover: transition-colors" href="javascript:history.back()">  
+&larr; Go back
+  </a> <p class="text-lg sm:text-xl md:text-2xl max-w-xl mx-auto font-light mt-4 font-serif uppercase text-center leading-6">   <span class="block opacity-50"> Futuristic Portraits </span> <span class="block">Soft Tech and Human Glow</span>   </p> <p class="text-lg sm:text-xl md:text-2xl max-w-xl mx-auto font-light mt-2 font-serif uppercase text-center leading-6">  A visual study in minimal futurism — merging soft light, clean design, and calm expressions to explore the intersection of human emotion and synthetic style.  </p> <div class="grid grid-cols-1 lg:grid-cols-6 row-span-2 gap-8 mt-8"> <img src="/semplice/_astro/thumbnail.DL5erZmj_ZaMlON.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1024" height="1536" class="object-cover lg:col-span-1 lg:row-span-2"> <img src="/semplice/_astro/1.BWj4--dS_ZcOJix.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1024" height="1536" class="object-cover lg:col-span-1"><img src="/semplice/_astro/2.DBzSlP-w_xntOt.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1024" height="1536" class="object-cover lg:col-span-1"><img src="/semplice/_astro/3.hcbuLZmT_1cD7IS.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1024" height="1536" class="object-cover lg:col-span-2 lg:row-span-2"><img src="/semplice/_astro/4.Blcet45G_fChQJ.webp" alt="#_" loading="lazy" decoding="async" fetchpriority="auto" width="1024" height="1536" class="object-cover lg:col-span-1"> </div>  </div> </section> </main>  </body></html> <script type="module">
+  import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+  // Autoplay plugin
+  const autoplay = (slider) => {
+    let timeout;
+    let mouseOver = false;
+    function clearNextTimeout() {
+      clearTimeout(timeout);
+    }
+    function nextTimeout() {
+      clearTimeout(timeout);
+      if (mouseOver) return;
+      timeout = setTimeout(() => {
+        slider.next();
+      }, 3000); // Adjust time if needed
+    }
+    slider.on("created", () => {
+      slider.container.addEventListener("mouseover", () => {
+        mouseOver = true;
+        clearNextTimeout();
+      });
+      slider.container.addEventListener("mouseout", () => {
+        mouseOver = false;
+        nextTimeout();
+      });
+      nextTimeout();
+    });
+    slider.on("dragStarted", clearNextTimeout);
+    slider.on("animationEnded", nextTimeout);
+    slider.on("updated", nextTimeout);
+  };
+  const keenSlider = new KeenSlider(
+    "#keen-slider",
+    {
+      loop: true,
+      defaultAnimation: {
+        duration: 1500,
+      },
+      detailsChanged: (s) => {
+        s.slides.forEach((element, idx) => {
+          element.style.opacity = s.track.details.slides[idx].portion;
+        });
+      },
+      slides: {
+        origin: "center",
+        perView: 1,
+        //spacing: 12,
+      },
+      breakpoints: {
+        "(min-width: 1024px)": {
+          slides: {
+            origin: "auto",
+            perView: 2.5,
+            spacing: 2,
+          },
+        },
+      },
+    },
+    [autoplay] //  Add autoplay plugin here
+  );
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+  keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+  keenSliderNext.addEventListener("click", () => keenSlider.next());
+</script>

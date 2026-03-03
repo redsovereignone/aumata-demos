@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth selection:bg-accent selection:text-secondary"> <head><title>Your Page Title</title>
+<meta name="description" content="A detailed description of your page content.">
+<link rel="canonical" href="https://yourwebsite.com/current-page">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="A detailed description of your page content.">
+<meta property="og:url" content="https://yourwebsite.com/current-page">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+<meta property="og:image:alt" content="Open Graph Image Alt">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Your Site Name">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yourwebsite">
+<meta name="twitter:creator" content="@yourhandle"> <!-- Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"><meta name="robots" content="index, follow"><meta name="googlebot" content="index, follow"> <!-- 
+// Newsreader, Geist & Geist Mono fron font:https://fonts.google.com
+--><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet"> <!-- Favicons --><link rel="icon" href="/vanta/favicon.ico" sizes="any"><link rel="icon" href="/vanta/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/vanta/apple-touch-icon.png"><link rel="manifest" href="/vanta/manifest.webmanifest"><!-- Favicon for IE --><link rel="shortcut icon" href="/vanta/favicon.ico" type="image/x-icon"><!-- Favicons for different sizes --><link rel="icon" type="image/png" sizes="16x16" href="/vanta/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/vanta/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/vanta/favicon-48x48.png"><!-- Apple Touch Icon (for backwards compatibility) --><link rel="apple-touch-icon" sizes="180x180" href="/vanta/apple-touch-icon.png"> <!-- Scripts --> <script type="module" src="/vanta/_astro/Fuse.astro_astro_type_script_index_0_lang.B5Y1pTMk.js"></script> <!--- Keen Slider --><link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet"><link rel="stylesheet" href="/vanta/_astro/_slug_.CkpmsvtR.css"></head> <body class="relative flex flex-col bg-secondary min-h-svh">  <div class="fixed z-50 bottom-5 right-5"><div class="relative"> <button class="flex items-center font-medium justify-center transition-all rounded-full items-center duration-300 focus:ring-2 focus:outline-none focus:ring-offset-2 focus:ring-offset-base text-black bg-accent focus:ring-accent hover:bg-accent/80 size-8 text-xs" type="button" id="searchButton" aria-label="Search site content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-search size-3" slot="icon"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path> </svg></button> <div id="searchModal" class="fixed inset-0 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true"> <div class="min-h-screen px-4 text-center"> <div class="fixed inset-0 bg-base-950/50 backdrop-blur transition-opacity" id="modalOverlay"></div> <div class="relative inline-block w-full max-w-md mt-12 mb-8 text-left align-middle bg-base-100 lg:mt-48 transition-all transform"> <div class="p-4 pb-2"> <div class="hidden"> <button type="button" id="closeSearch" class="ml-auto cursor-pointer text-base-400 hover:text-primary/60" aria-label="Close search"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-wave-x size-5"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M18 6l-12 12"></path> <path d="M6 6l12 12"></path> </svg> </button> </div> <input type="text" id="searchInput" placeholder="Search everything..." class="block w-full px-4 py-2 text-xs leading-tight align-middle bg-secondary border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-primary/60 ring-1 ring-primary/10 placeholder-primary/30 focus:border-accent focus:ring-accent/10 focus:ring-2 focus:outline-none shadow-sm"> <div id="searchResults" class="flex flex-col w-full mt-2 overflow-y-auto bg-secondary max-h-200 rounded-xl scrollbar-hide focus:outline-none space-y-2 focus:ring-2 focus:ring-accent"></div> </div> </div> </div> </div> </div> <script>(function(){const searchItems = [{"title":"Astro Fundamentals","description":"Master the core concepts of Astro by building fast, modern websites from scratch.","url":"/courses/astro-fundamentals","type":"Course"},{"title":"Astro Content Collections Masterclass","description":"Master Astro's powerful content management system and build scalable, type-safe content-driven websites.","url":"/courses/astro-content-collections","type":"Course"},{"title":"The Future of Front-End Performance in 2025","description":"Explore upcoming trends in web performance, how Astro fits into the future of fast websites, and what developers should prepare for.","url":"/blog/posts/1","type":"Blog"},{"title":"Learning Astro: Why Simplicity Wins","description":"Astro makes modern web development approachable again. Here's why learners love it and how it simplifies the developer experience.","url":"/blog/posts/2","type":"Blog"},{"title":"Content-First Design: How Astro Gets It Right","description":"Modern websites are driven by content—and Astro is built for exactly that. Here's how its architecture supports clarity, speed, and storytelling.","url":"/blog/posts/3","type":"Blog"},{"title":"Why Developers Love Astro’s Tooling","description":"Astro doesn’t just make fast sites—it makes developers faster. Explore how its modern dev experience is reshaping frontend workflows.","url":"/blog/posts/4","type":"Blog"},{"title":"Islands Architecture Explained (Without the Hype)","description":"You’ve heard the buzz—Astro’s island architecture changes how we build for the web. Here’s what it actually means and why it matters.","url":"/blog/posts/5","type":"Blog"},{"title":"From Markdown to Masterpiece: Publishing with Astro","description":"See how Astro turns simple Markdown files into fully styled, high-performance pages—and why it’s perfect for content creators.","url":"/blog/posts/6","type":"Blog"},{"title":"Lexington Themes","description":"Premium multipage themes crafted with Astro and Tailwind CSS","url":"/projects/1","type":"Project"},{"title":"Oxbow UI","description":"Components and UI Blocks crafted with Tailwind CSS","url":"/projects/2","type":"Project"},{"title":"Colors & fonts","description":"Color & typography tools for web developers & digital designers","url":"/projects/3","type":"Project"},{"title":"Introduction to Content Collections","description":"astro-content-collections - Content Collections Basics","url":"/courses/astro-content-collections/introduction-to-content-collections","type":"Lesson"},{"title":"What is Astro?","description":"astro-fundamentals - Content Collections","url":"/courses/astro-fundamentals/what-is-astro","type":"Lesson"},{"title":"Setting Up Your First Astro Project","description":"astro-fundamentals - Getting Started","url":"/courses/astro-fundamentals/setting-up-your-first-project","type":"Lesson"},{"title":"Setting up Collections","description":"astro-content-collections - Content Collections Basics","url":"/courses/astro-content-collections/setting-up-collections","type":"Lesson"},{"title":"Astrid Nyberg","description":"Content Architecture Strategist","url":"/teachers/astrid-nyberg","type":"Teacher"},{"title":"Freja Lindholm","description":"UI & Interaction Designer","url":"/teachers/freja-lindholm","type":"Teacher"},{"title":"Lucía Herrera","description":"Design Systems Specialist","url":"/teachers/lucia-herrera","type":"Teacher"},{"title":"Matteo Romano","description":"Deployment & DevOps Mentor","url":"/teachers/matteo-romano","type":"Teacher"},{"title":"Nils Vestergaard","description":"Performance Optimization Lead","url":"/teachers/nils-vestergaard","type":"Teacher"},{"title":"Soren Dahl","description":"Frontend Framework Instructor","url":"/teachers/soren-dahl","type":"Teacher"},{"title":"Emma Carter","description":"Student Success & Community Manager","url":"/team/emma-carter","type":"Team"},{"title":"Isaac Turner","description":"Content Strategist & UX Mentor","url":"/team/isaac-turner","type":"Team"},{"title":"David Lee","description":"Curriculum Lead & Instructor","url":"/team/david-lee","type":"Team"},{"title":"Juliet Ramos","description":"Emerging Tech & Design Ethos Lead","url":"/team/juliet-ramos","type":"Team"},{"title":"Jordan Wells","description":"Digital Sports Editor","url":"/team/jordan-wells","type":"Team"},{"title":"Sofia Lundarez","description":"This course made everything click for me — finally!","url":"/customers/1","type":"Customer"},{"title":"Alba Ferrucci","description":"The design system section helped me finally ship my first portfolio!","url":"/customers/2","type":"Customer"},{"title":"Inés Marquina","description":"The best frontend course I’ve taken this year — hands down.","url":"/customers/3","type":"Customer"},{"title":"Miro Salonen","description":"It finally clicked. Astro made frontend fun again.","url":"/customers/4","type":"Customer"},{"title":"Elena Rodriguez","description":"From marketing campaigns to shipping products—Astro gave me the technical confidence I never thought I'd have.","url":"/customers/5","type":"Customer"},{"title":"James Chen","description":"Finally, a frontend framework that doesn't make me want to run back to the server room.","url":"/customers/6","type":"Customer"},{"title":"Marcus Thompson","description":"I thought I'd be stuck in WordPress forever. Astro showed me there's life beyond plugins and themes.","url":"/customers/7","type":"Customer"},{"title":"Sarah Kim","description":"I can finally make my data visualizations look as good as the insights they reveal.","url":"/customers/8","type":"Customer"},{"title":"Privacy","description":"Legal","url":"/legal/privacy","type":"Legal"},{"title":"Terms","description":"Legal","url":"/legal/terms","type":"Legal"}];
+
+  window.addEventListener("load", () => {
+    // Get references to necessary DOM elements
+    const searchButton = document.getElementById("searchButton");
+    const searchModal = document.getElementById("searchModal");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+    const closeSearch = document.getElementById("closeSearch");
+    // Clear the search input field on page load to prevent old values from persisting
+    searchInput.value = "";
+    // Initialize Fuse.js for fuzzy searching
+    const fuse = new Fuse(searchItems, {
+      keys: ["title", "description", "type"], // Fields to search in
+      threshold: 0.3, // Determines search sensitivity (lower = stricter match)
+      includeMatches: true, // Includes matched text segments in results
+    });
+    // Function to open the search modal
+    function openSearch(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      searchModal.classList.remove("hidden"); // Show the modal
+      document.body.style.overflow = "hidden"; // Prevent scrolling in the background
+      setTimeout(() => searchInput.focus(), 100); // Delay focus to ensure input is ready
+    }
+    // Function to close the search modal
+    function closeSearchModal(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      searchModal.classList.add("hidden"); // Hide the modal
+      document.body.style.overflow = ""; // Restore scrolling functionality
+      searchInput.value = ""; // Clear search input when modal is closed
+      searchResults.innerHTML = ""; // Clear search results
+    }
+    // Function to display search results
+    function renderResults(results) {
+      // If search input is empty, clear results
+      if (!searchInput.value.trim()) {
+        searchResults.innerHTML = "";
+        return;
+      }
+      // If no results are found, display a message
+      if (results.length === 0) {
+        searchResults.innerHTML = `
+                <div class="px-4 py-3 text-sm text-primary/60">
+                    No results found
+                </div>
+            `;
+        return;
+      }
+      // Generate HTML for search results and display them
+      searchResults.innerHTML = results
+        .slice(0, 5) // Limit results to top 5 matches
+        .map(
+          (result) => `
+                <a href="${result.item.url}" rounded-lg  class="block p-4 m-1 text-balance  hover:bg-primary/2 rounded-lg focus:outline-none focus:ring-2 ring-inset focus:ring-accent  duration-300">   
+                  <div class="flex items-center justify-between gap-2">
+                    <h3 class="text-sm font-medium text-base-800">${result.item.title}</h3>   
+                    <span class="text-[10px] uppercase tracking-wide text-primary/50">${result.item.type}</span>
+                  </div>
+                  <p class="mt-2 text-sm text-primary/60 ">${result.item.description || ""}</p> 
+                </a>
+            `
+        )
+        .join(""); // Convert array of HTML into a single string
+    }
+    // Attach event listeners for opening the search modal (both click and touch)
+    searchButton.addEventListener("click", openSearch);
+    searchButton.addEventListener("touchend", openSearch);
+    // Attach event listeners for closing the search modal (both click and touch)
+    closeSearch.addEventListener("click", closeSearchModal);
+    closeSearch.addEventListener("touchend", closeSearchModal);
+    // Close the modal when clicking outside the search box
+    modalOverlay.addEventListener("click", closeSearchModal);
+    modalOverlay.addEventListener("touchend", closeSearchModal);
+    // Perform search when input changes
+    searchInput.addEventListener("input", (e) => {
+      const value = e.target.value; // Get the input value
+      const results = value.trim() ? fuse.search(value) : []; // Perform search if input isn't empty
+      renderResults(results); // Update the displayed results
+    });
+    // Close the search modal when pressing the "Escape" key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !searchModal.classList.contains("hidden")) {
+        closeSearchModal();
+      }
+    });
+  });
+})();</script></div> <main class="grow">  <div class="w-full max-w-md px-8 py-24 mx-auto lg:py-32"> <div> <a href="/vanta/" class="text-xs text-primary hover:text-primary/60">
+Go back home</a> <h1 class="text-base mt-12 font-medium text-primary">  Sign up
+  </h1> <p class="text-sm  font-serif text-primary/60 text-balance">  
+Create your account below. We promise not to make you confirm your email
+        three times (unless you really want to).
+  </p> </div> <form class="pt-2 mt-2 border-t border-dotted border-primary/10 space-y-4"> <div class="w-full"> <div class="flex items-baseline justify-between mb-1"> <label for="email" class="text-xs font-medium text-primary/60">
+Email Address
+</label> </div> <div class="relative z-0 focus-within:z-10"> <input id="email" name="email" type="email" placeholder="you@example.com" class="block w-full px-4 py-2 text-xs leading-tight align-middle bg-secondary border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-primary/60 ring-1 ring-primary/10 placeholder-primary/30 focus:border-accent focus:ring-accent/10 focus:ring-2 focus:outline-none shadow-sm" inputmode="email"> </div> </div> <div class="w-full"> <div class="flex items-baseline justify-between mb-1"> <label for="password" class="text-xs font-medium text-primary/60">
+Password
+</label> </div> <div class="relative z-0 focus-within:z-10"> <input required id="password" name="password" type="password" placeholder="••••••••" class="block w-full px-4 py-2 text-xs leading-tight align-middle bg-secondary border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-primary/60 ring-1 ring-primary/10 placeholder-primary/30 focus:border-accent focus:ring-accent/10 focus:ring-2 focus:outline-none shadow-sm" aria-required="true"> </div> </div> <div class="w-full"> <div class="flex items-baseline justify-between mb-1"> <label for="confirm-password" class="text-xs font-medium text-primary/60">
+Confirm Password
+</label> </div> <div class="relative z-0 focus-within:z-10"> <input required id="confirm-password" name="confirm-password" type="password" placeholder="••••••••" class="block w-full px-4 py-2 text-xs leading-tight align-middle bg-secondary border border-transparent transition duration-300 ease-in-out focus:z-10 h-9 rounded-md text-primary/60 ring-1 ring-primary/10 placeholder-primary/30 focus:border-accent focus:ring-accent/10 focus:ring-2 focus:outline-none shadow-sm" aria-required="true"> </div> </div> <div class="flex flex-wrap gap-2"> <button class="flex items-center font-medium justify-center transition-all rounded-full items-center duration-300 focus:ring-2 focus:outline-none focus:ring-offset-2 focus:ring-offset-base text-black bg-accent focus:ring-accent hover:bg-accent/80 h-8 px-6 py-3 text-xs gap-4 w-fit" type="submit">
+Create account
+</button> <button class="flex items-center font-medium justify-center transition-all rounded-full items-center duration-300 focus:ring-2 focus:outline-none focus:ring-offset-2 focus:ring-offset-base text-primary bg-primary/5 focus:ring-muted hover:bg-primary/10 size-8 text-xs" type="submit"><svg class="size-4" slot="left-icon" viewBox="0 0 256 262" xmlns="http://www.w3.org/2000/svg"> <path d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" fill="#4285F4"></path> <path d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" fill="#34A853"></path> <path d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" fill="#FBBC05"></path> <path d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" fill="#EB4335"></path> </svg></button> </div> </form> <p class="mt-12 text-xs font-medium text-primary/60">
+Already have an account?
+<a href="/vanta/sign-in" class="font-medium text-accent hover:text-primary/60">
+Sign in
+</a> </p> </div>  </main>  <script type="module">
+  const dots = document.querySelectorAll(".theme-dot");
+  const savedTheme = localStorage.getItem("theme") || "default";
+  function applyTheme(theme) {
+    if (theme === "default") {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.removeItem("theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    }
+    // Toggle ring highlight
+    dots.forEach((dot) => {
+      const isActive = dot.dataset.theme === theme;
+      dot.classList.toggle("ring-offset-2", isActive);
+      dot.classList.toggle("ring-current", isActive);
+    });
+  }
+  // Set theme on load
+  applyTheme(savedTheme);
+  // Add click listeners
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      applyTheme(dot.dataset.theme);
+    });
+  });
+</script> </body></html>
