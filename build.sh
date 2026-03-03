@@ -21,8 +21,13 @@ while IFS=' ' read -r SLUG REPO; do
   # Clean up any previous attempt
   rm -rf "$WORK_DIR"
 
-  # Clone the repo
-  git clone --depth 1 "https://github.com/$REPO.git" "$WORK_DIR" || {
+  # Clone the repo (use token auth if GITHUB_TOKEN is set)
+  if [ -n "${GITHUB_TOKEN:-}" ]; then
+    CLONE_URL="https://$GITHUB_TOKEN@github.com/$REPO.git"
+  else
+    CLONE_URL="https://github.com/$REPO.git"
+  fi
+  git clone --depth 1 "$CLONE_URL" "$WORK_DIR" || {
     echo "WARNING: Failed to clone $REPO, skipping"
     continue
   }
