@@ -1,0 +1,36 @@
+# Lumen Astro Template
+
+Lumen Astro Template is a premium template built by https://www.shadcnblocks.com
+
+- [Demo](https://lumen-astro-template.vercel.app/)
+- [Documentation](https://docs.shadcnblocks.com/templates/getting-started)
+
+## Screenshot
+
+![Lumen Astro Template screenshot](./public/images/og-image.jpg)
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+Open [http://localhost:4321](http://localhost:4321) with your browser to see the result.
+
+## Tech Stack
+
+- Astro 5.x
+- Tailwind 4
+- shadcn/ui latest
+
+## Deploy
+
+You can deploy this template to your preferred hosting platform that supports Astro applications. Some recommended options include:
+
+- [Netlify](https://netlify.com)
+- [Vercel](https://vercel.com)
+- [Cloudflare Pages](https://pages.cloudflare.com)

@@ -108,5 +108,85 @@ PYEOF
 
 done <<< "$TEMPLATES"
 
-echo "Build complete. Templates in public/:"
+echo "Build complete (Lexington). Templates in public/:"
+ls "$PUBLIC_DIR/"
+
+# ── Shadcn templates (from local source directories) ─────────────────────────
+SHADCN_DIR="$REPO_ROOT/shadcn-sources"
+if [ -d "$SHADCN_DIR" ]; then
+  for SLUG_DIR in "$SHADCN_DIR"/*/; do
+    SLUG=$(basename "$SLUG_DIR")
+    echo "==> Building shadcn/$SLUG"
+    WORK_DIR="/tmp/aumata-shadcn-$SLUG"
+    rm -rf "$WORK_DIR"
+    cp -r "$SLUG_DIR" "$WORK_DIR"
+    cd "$WORK_DIR"
+
+    npm install --prefer-offline || npm install || {
+      echo "WARNING: npm install failed for $SLUG, skipping"; cd "$REPO_ROOT"; continue
+    }
+
+    npx astro build --base="/$SLUG/" || {
+      echo "WARNING: Build failed for $SLUG, skipping"; cd "$REPO_ROOT"; continue
+    }
+
+    # Rewrite absolute internal hrefs/srcs (same script as Lexington)
+    if [ -d "dist" ]; then
+      python3 - "$SLUG" <<'PYEOF'
+import sys, os, re
+slug = sys.argv[1]
+prefix = '/' + slug
+pattern = re.compile(
+    r'((?:href|src|action)=")(/(?!/)(?!' + re.escape(slug) + r'/)([^"]*))(")'
+)
+def rewrite(m):
+    return m.group(1) + prefix + m.group(2) + m.group(4)
+for root, dirs, files in os.walk('dist'):
+    for f in files:
+        if f.endswith('.html'):
+            fpath = os.path.join(root, f)
+            with open(fpath, encoding='utf-8') as fp:
+                content = fp.read()
+            new_content = pattern.sub(rewrite, content)
+            if new_content != content:
+                with open(fpath, 'w', encoding='utf-8') as fp:
+                    fp.write(new_content)
+PYEOF
+    fi
+
+    # Strip shadcnblocks.com purchase/template links
+    if [ -d "dist" ]; then
+      python3 - <<'PYEOF'
+import os, re
+buy_pattern = re.compile(
+    r'<a\s[^>]*?href="https://(?:shadcnblocks\.com/templates/|shadcnblocks\.com/checkout|shadcnblocks\.com/buy)[^"]*"[^>]*>[\s\S]*?</a>',
+    re.IGNORECASE
+)
+for root, dirs, files in os.walk('dist'):
+    for f in files:
+        if f.endswith('.html'):
+            fpath = os.path.join(root, f)
+            with open(fpath, encoding='utf-8') as fp:
+                content = fp.read()
+            new_content = buy_pattern.sub('', content)
+            if new_content != content:
+                with open(fpath, 'w', encoding='utf-8') as fp:
+                    fp.write(new_content)
+PYEOF
+    fi
+
+    if [ -d "dist" ]; then
+      mkdir -p "$PUBLIC_DIR/$SLUG"
+      cp -r dist/. "$PUBLIC_DIR/$SLUG/"
+      echo "OK Built $SLUG"
+    else
+      echo "WARNING: No dist/ output for $SLUG"
+    fi
+
+    cd "$REPO_ROOT"
+    rm -rf "$WORK_DIR"
+  done
+fi
+
+echo "All builds complete. Templates in public/:"
 ls "$PUBLIC_DIR/"

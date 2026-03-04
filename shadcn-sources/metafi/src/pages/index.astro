@@ -1,0 +1,51 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import MetafiCta from "@/components/sections/matafi-cta";
+import MetafiFaq from "@/components/sections/metafi-faq";
+import MetafiFeaturedBlogPosts from "@/components/sections/metafi-featured-blog-posts";
+import MetafiFeatures from "@/components/sections/metafi-features";
+import MetafiHero from "@/components/sections/metafi-hero";
+import MetafiIntegrations from "@/components/sections/metafi-integrations";
+import MetafiLogos from "@/components/sections/metafi-logos";
+import MetafiTestimonials from "@/components/sections/metafi-testimonials";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+type BlogEntry = CollectionEntry<"blog">;
+
+const entries: BlogEntry[] = await getCollection("blog");
+
+const allPosts = entries.map((p) => ({
+  slug: p.slug,
+  title: (p.data.title || p.slug.replace(/-/g, " ")).trim(),
+  description: p.data.description ?? "",
+  tagline: p.data.tagline ?? "",
+  author: p.data.author ?? "",
+  date: (p.data.date ?? p.data.published)?.toISOString() ?? "",
+  coverImage: p.data.coverImage ?? p.data.image ?? "",
+  latest: !!p.data.latest,
+}));
+
+const latest = allPosts.filter((p) => p.latest).slice(0, 4);
+
+const cards = latest.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  intro: p.description,
+  tagline: p.tagline,
+  author: p.author,
+  date: p.date,
+  coverImage: p.coverImage,
+}));
+---
+
+<DefaultLayout title="Home" description="Metafi">
+  <MetafiHero client:load />
+  <MetafiLogos />
+  <MetafiFeatures client:load />
+  <MetafiIntegrations />
+  <MetafiTestimonials client:load />
+  <MetafiFaq client:load />
+  <MetafiFeaturedBlogPosts posts={cards} />
+  <MetafiCta />
+</DefaultLayout>

@@ -1,0 +1,16 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import Testimonials from '@/components/sections/testimonials';
+import FaqSection from '@/components/sections/faq';
+---
+
+<DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="py-14 md:py-20 lg:py-24">
+    <FaqSection withBorders={false}  client:only='react'/>
+    <div class="py-14 md:py-20 lg:py-24">
+      <Testimonials withBorders={false} />
+    </div>
+</div>
+</DefaultLayout>

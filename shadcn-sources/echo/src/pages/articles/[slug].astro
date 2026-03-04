@@ -1,0 +1,54 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import { getEntry, render } from 'astro:content';
+import { ArticleHero } from '@/components/sections/article';
+import { ArticlesList } from '@/components/sections/latest-writing';
+import { CodeBlockEnhancer } from '@/components/mdx/code-block-enhancer';
+import { mdxComponents } from '@/components/mdx';
+import { getAllArticles, getArticleSlugs } from '@/lib/articles';
+
+export async function getStaticPaths() {
+  const slugs = await getArticleSlugs();
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect('/404');
+}
+
+const entry = await getEntry('articles', slug);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await render(entry);
+
+const allArticles = await getAllArticles();
+const otherArticles = allArticles.filter((a) => a.slug !== slug);
+---
+
+<DefaultLayout title={entry.data.title} description={entry.data.description}>
+  <article class="section-padding pt-0!">
+    <ArticleHero title={entry.data.title} client:idle />
+    <div
+      class="prose prose-lg prose-neutral dark:prose-invert prose-a:link-underline prose-a:no-underline prose-lead:text-muted-foreground prose-li:marker:text-foreground prose-h2:text-2xl prose-h2:font-display prose-h2:mt-12 prose-h2:mb-4 max-w-none space-y-6"
+    >
+      <Content components={mdxComponents} />
+    </div>
+  </article>
+  {
+    otherArticles.length > 0 && (
+      <ArticlesList
+        articles={otherArticles}
+        showHeader
+        headerTitle="Related articles"
+        showReadAllLink={false}
+        client:idle
+      />
+    )
+  }
+  <CodeBlockEnhancer client:load />
+</DefaultLayout>

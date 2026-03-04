@@ -1,0 +1,18 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+---
+
+<DefaultLayout title="Page Not Found">
+  <section class="hero-padding container flex flex-col items-center justify-center gap-6 text-center">
+    <h1 class="text-6xl font-bold">404</h1>
+    <p class="text-muted-foreground text-xl">
+      The page you're looking for doesn't exist.
+    </p>
+    <a
+      href="/"
+      class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-md px-8 text-sm font-medium transition-colors"
+    >
+      Go back home
+    </a>
+  </section>
+</DefaultLayout>

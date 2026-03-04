@@ -1,0 +1,18 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import AboutHero from '@/components/sections/about-hero';
+import BenefitsShowcase from '@/components/sections/benefits-showcase';
+import TeamShowcase from '@/components/sections/team-showcase';
+import VideoShowcase from '@/components/sections/video-showcase';
+import WhyWeBegan from '@/components/sections/why-we-began';
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+---
+
+<DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <AboutHero />
+  <BenefitsShowcase />
+  <VideoShowcase client:load />
+  <TeamShowcase />
+  <WhyWeBegan />
+</DefaultLayout>

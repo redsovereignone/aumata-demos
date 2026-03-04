@@ -1,0 +1,18 @@
+---
+import ZippayAboutHero from "@/components/sections/zippay-about-hero";
+import ZippayCoreValues from "@/components/sections/zippay-core-values";
+import ZippayCtaCard from "@/components/sections/zippay-cta-card";
+import ZippayMission from "@/components/sections/zippay-mission";
+import ZippayTeamMembers from "@/components/sections/zippay-team-members";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <ZippayAboutHero />
+  <ZippayMission />
+  <ZippayCoreValues />
+  <ZippayTeamMembers />
+  <ZippayCtaCard />
+</DefaultLayout>

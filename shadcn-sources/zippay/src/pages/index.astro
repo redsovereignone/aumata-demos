@@ -1,0 +1,20 @@
+---
+import ZippayContentsSection from "@/components/sections/zippay-contents-section";
+import ZippayCtaSection from "@/components/sections/zippay-cta-section";
+import ZippayFeatureQuad from "@/components/sections/zippay-feature-quad";
+import ZippayFeaturesSection from "@/components/sections/zippay-features-section";
+import ZippayHero from "@/components/sections/zippay-hero";
+import ZippayTestimonialsSection from "@/components/sections/zippay-testimonials-section";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <ZippayHero />
+  <ZippayFeaturesSection client:only="react" />
+  <ZippayContentsSection client:only="react" />
+  <ZippayFeatureQuad client:only="react" />
+  <ZippayTestimonialsSection />
+  <ZippayCtaSection />
+</DefaultLayout>

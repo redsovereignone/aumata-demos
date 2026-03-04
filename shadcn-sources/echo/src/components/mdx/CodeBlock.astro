@@ -1,0 +1,20 @@
+---
+import { CopyButton } from './copy-button';
+
+interface Props {
+  code: string;
+  class?: string;
+}
+
+const { code, class: className } = Astro.props;
+---
+
+<div class="not-prose bigger-container">
+  <div class="bg-card relative overflow-hidden rounded-3xl border shadow-xs">
+    <pre
+      class:list={['overflow-x-auto p-5 text-sm leading-relaxed', className]}
+      set:html={code}
+    />
+    <CopyButton code={code} client:visible />
+  </div>
+</div>

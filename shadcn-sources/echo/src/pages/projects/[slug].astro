@@ -1,0 +1,71 @@
+---
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import {
+  MoreProjects,
+  ProjectDetails,
+  ProjectHero,
+} from '@/components/sections/project';
+import { StackGrid } from '@/components/stack-grid';
+import {
+  getAllProjects,
+  getProjectBySlug,
+  getProjectSlugs,
+} from '@/lib/projects';
+import type { ProjectFrontmatter } from '@/lib/types';
+
+export async function getStaticPaths() {
+  const slugs = await getProjectSlugs();
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect('/404');
+}
+
+const project = await getProjectBySlug(slug);
+
+if (!project) {
+  return Astro.redirect('/404');
+}
+
+const { frontmatter } = project;
+const allProjects = await getAllProjects();
+
+// Get related projects specified in the MDX frontmatter
+const moreProjects = frontmatter.moreProjects
+  .map((slug) => allProjects.find((p) => p.slug === slug))
+  .filter(Boolean) as ProjectFrontmatter[];
+---
+
+<DefaultLayout title={frontmatter.name} description={frontmatter.description}>
+  <article>
+    <ProjectHero
+      name={frontmatter.name}
+      liveUrl={frontmatter.liveUrl}
+      sourceUrl={frontmatter.sourceUrl}
+      coverImage={frontmatter.image}
+      longDescription={frontmatter.longDescription}
+      wrapperClassName={frontmatter.wrapperClassName}
+      imageClassName={frontmatter.imageClassName}
+      client:idle
+    />
+
+    <StackGrid
+      stack={frontmatter.stack}
+      title="Project stack"
+      className="hero-padding pt-0!"
+      client:idle
+    />
+
+    <ProjectDetails
+      images={frontmatter.images}
+      additionalDescription={frontmatter.additionalDescription}
+      highlights={frontmatter.highlights}
+      client:idle
+    />
+
+    <MoreProjects projects={moreProjects} client:visible />
+  </article>
+</DefaultLayout>

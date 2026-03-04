@@ -1,0 +1,67 @@
+---
+import { type CollectionEntry,getCollection, render } from "astro:content";
+
+import ZippayCtaCard from "@/components/sections/zippay-cta-card";
+import ZippayIntegrationPost from "@/components/sections/zippay-integration-post";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+type IntegrationEntry = CollectionEntry<"integrations">;
+
+export async function getStaticPaths() {
+  const entries = await getCollection("integrations");
+  return entries.map((entry) => {
+    // Prefer entry.slug if available; otherwise derive from entry.id
+    const anyEntry = entry as unknown as { slug?: string };
+    const slug =
+      anyEntry.slug ??
+      entry.id
+        .replace(/\\/g, "/")
+        .replace(/\.mdx?$/i, "")
+        .replace(/\/index$/i, "");
+
+    return { params: { slug }, props: { entry, slug } };
+  });
+}
+
+const { entry, slug } = Astro.props as {
+  entry: IntegrationEntry;
+  slug: string;
+};
+
+// Frontmatter fields with sensible defaults
+const title =
+  (typeof entry.data.title === "string" ? entry.data.title.trim() : "") ||
+  slug.split("/").pop()!.replace(/-/g, " ");
+
+const category = (entry.data.category ?? "General") as string;
+const summary = (entry.data.summary ?? entry.data.description ?? "") as string;
+const icon = (entry.data.icon ??
+  "/images/integrations/placeholder.svg") as string;
+const badges = Array.isArray(entry.data.badges)
+  ? entry.data.badges.map(String)
+  : [];
+const website = entry.data.website?.toString();
+const pricing = entry.data.pricing?.toString();
+const terms = entry.data.terms?.toString();
+
+// Render MDX body
+const { Content } = await render(entry);
+---
+
+<DefaultLayout title={`${title} – Integration`} description={summary}>
+  <ZippayIntegrationPost
+    client:only="react"
+    title={title}
+    category={category}
+    summary={summary}
+    icon={icon}
+    badges={badges}
+    website={website}
+    pricing={pricing}
+    terms={terms}
+  >
+    <Content />
+  </ZippayIntegrationPost>
+
+  <ZippayCtaCard client:only="react" softBg />
+</DefaultLayout>

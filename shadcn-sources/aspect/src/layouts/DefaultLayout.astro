@@ -1,0 +1,29 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import { Footer } from "@/components/sections/footer";
+import { Navbar } from "@/components/sections/navbar";
+import Banner from "@/components/sections/banner";
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en" class="dark">
+  <head>
+    <BaseHead title={title} description={description} />
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          const theme = stored ?? "dark";
+          document.documentElement.classList.toggle("dark", theme === "dark");
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body class={`h-screen antialiased`}>
+    <Banner client:only="react" url="https://www.shadcnblocks.com/template/aspect?bundle=astro"  />
+    <Navbar client:only="react" />
+    <main><slot /></main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,12 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import PricingSection from '@/components/sections/pricing';
+import PricingTable from '@/components/sections/pricing-table';
+import DefaultLayout from '@/layouts/DefaultLayout.astro';
+---
+
+<DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <PricingSection client:load />
+  <PricingTable client:load />
+</DefaultLayout>

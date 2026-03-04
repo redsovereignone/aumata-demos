@@ -1,0 +1,26 @@
+---
+import AspectDashboard from "@/components/sections/aspect-dashboard";
+import AspectFaq from "@/components/sections/aspect-faq";
+import AspectHero from "@/components/sections/aspect-hero";
+import AspectLogos from "@/components/sections/aspect-logos";
+import AspectPricing from "@/components/sections/aspect-pricing";
+import AspectSeparator from "@/components/sections/aspect-separator";
+import AspectTabs from "@/components/sections/aspect-tabs";
+import AspectTestimonials from "@/components/sections/aspect-testimonials";
+import AspectWorldMap from "@/components/sections/aspect-world-map";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <AspectHero />
+  <AspectLogos />
+  <AspectTabs client:load />
+  <AspectTestimonials />
+  <AspectDashboard />
+  <AspectWorldMap client:only="react" />
+  <AspectFaq client:load />
+  <AspectPricing client:load />
+  <AspectSeparator />
+</DefaultLayout>
